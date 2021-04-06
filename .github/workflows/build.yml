@@ -21,7 +21,7 @@ jobs:
                            libc6-dev-i386 libc6-dbg:i386 valgrind
       - name: Build
         run: |
-          cd src && make EMBED=menu.ipxe
+          cd src && make EMBED=menu.ipxe && make bin-x86_64-efi/ipxe.efi EMBED=menu.ipxe
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
@@ -31,6 +31,7 @@ jobs:
             src/bin/*.mrom
             src/bin/ipxe.dsk
             src/bin/ipxe.iso
+            src/bin/ipxe.efi
             src/bin/ipxe.lkrn
             src/bin/ipxe.pxe
             src/bin/ipxe.usb
