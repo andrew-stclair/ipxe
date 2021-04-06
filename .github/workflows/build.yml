@@ -30,7 +30,7 @@ jobs:
             src/bin/*.rom
             src/bin/*.mrom
             src/bin/ipxe.dsk
-            src/bin/ipxe.efi
+            src/bin-x86_64-efi/ipxe.efi
             src/bin/ipxe.iso
             src/bin/ipxe.lkrn
             src/bin/ipxe.pxe
