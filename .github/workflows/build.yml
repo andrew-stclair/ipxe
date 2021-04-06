@@ -22,16 +22,19 @@ jobs:
       - name: Build
         run: |
           cd src && make EMBED=menu.ipxe && make bin-x86_64-efi/ipxe.efi
+      - name: Merge Artifacts
+        run: |
+          mkdir -p  ~/artifacts
+          cp src/bin/*.rom ~/artifacts/.
+          cp src/bin/*.mrom ~/artifacts/.
+          cp src/bin/ipxe.dsk ~/artifacts/.
+          cp src/bin-x86_64-efi/ipxe.efi ~/artifacts/.
+          cp src/bin/ipxe.iso ~/artifacts/.
+          cp src/bin/ipxe.lkrn ~/artifacts/.
+          cp src/bin/ipxe.pxe ~/artifacts/.
+          cp src/bin/ipxe.usb ~/artifacts/.
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
           name: x86 Binaries
-          path: |
-            src/bin/*.rom
-            src/bin/*.mrom
-            src/bin/ipxe.dsk
-            src/bin-x86_64-efi/ipxe.efi
-            src/bin/ipxe.iso
-            src/bin/ipxe.lkrn
-            src/bin/ipxe.pxe
-            src/bin/ipxe.usb
+          path:  ~/artifacts/*
