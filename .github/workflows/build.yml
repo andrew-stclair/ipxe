@@ -23,7 +23,14 @@ jobs:
         run: |
           cd src && make EMBED=menu.ipxe
       - name: Export Artifact
-        run: |
-          cd src/bin
-          pwd
-          ls -la
+        uses: actions/upload-artifact@v2
+        with:
+          name: x86
+          path: |
+            src/bin/*.rom
+            src/bin/*.mrom
+            src/bin/ipxe.dsk
+            src/bin/ipxe.iso
+            src/bin/ipxe.lkrn
+            src/bin/ipxe.pxe
+            src/bin/ipxe.usb
