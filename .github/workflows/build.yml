@@ -19,12 +19,9 @@ jobs:
           sudo apt install -y -o Acquire::Retries=50 \
                            mtools syslinux isolinux \
                            libc6-dev-i386 libc6-dbg:i386 valgrind
-      - name: Build (BIOS)
+      - name: Build
         run: |
-          make -j 4 -C src
-      - name: Build (Everything)
-        run: |
-          make -j 4 -C src everything
+          cd src && make EMBED=menu.ipxe && cd ..
       - name: Test
         run: |
           valgrind ./src/bin-i386-linux/tests.linux
