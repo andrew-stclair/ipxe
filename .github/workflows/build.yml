@@ -21,8 +21,8 @@ jobs:
                            libc6-dev-i386 libc6-dbg:i386 valgrind
       - name: Build
         run: |
-          cd src && make EMBED=menu.ipxe && cd ..
-      - name: Test
+          cd src && make EMBED=menu.ipxe
+      - name: Export Artifact
         run: |
-          valgrind ./src/bin-i386-linux/tests.linux
-          valgrind ./src/bin-x86_64-linux/tests.linux
+          pwd
+          ls -la
