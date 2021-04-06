@@ -24,5 +24,6 @@ jobs:
           cd src && make EMBED=menu.ipxe
       - name: Export Artifact
         run: |
+          cd src/bin
           pwd
           ls -la
