@@ -4,5 +4,7 @@ Quick start guide:
 
    cd src
    make
+   
+Or just download the latest artifact from the latst successful github action
 
 For any more detailed instructions, see http://ipxe.org
