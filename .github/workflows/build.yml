@@ -22,10 +22,10 @@ jobs:
       - name: Build
         run: |
           cd src && make EMBED=menu.ipxe
-      - name: Export Artifact
+      - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: x86
+          name: x86 Binaries
           path: |
             src/bin/*.rom
             src/bin/*.mrom
