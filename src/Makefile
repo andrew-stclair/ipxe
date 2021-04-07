@@ -196,9 +196,11 @@ vmware : bin/8086100f.mrom bin/808610d3.mrom bin/10222000.rom bin/15ad07b0.rom
 
 ###############################################################################
 #
-# VMware build target: all ROMs used with VMware
+# Custom build target
 #
-custom : bin/ipxe.iso bin/ipxe.pxe bin/ipxe.lkrn bin/ipxe.dsk bin/ipxe.usb bin-x86_64-efi/ipxe.efi
+custom : 
+	$(Q)$(MAKE) --no-print-directory $(ALL) \
+		bin/ipxe.iso bin/ipxe.pxe bin/ipxe.lkrn bin/ipxe.dsk bin/ipxe.usb bin-x86_64-efi/ipxe.efi
 	@$(ECHO) '==========================================================='
 	@$(ECHO) 
 	@$(ECHO) 'Available binaries:'
