@@ -19,24 +19,9 @@ jobs:
           sudo apt install -y -o Acquire::Retries=50 \
                            mtools syslinux isolinux \
                            libc6-dev-i386 libc6-dbg:i386 valgrind
-      - name: Build ipxe.dsk
+      - name: Build
         run: |
-          cd src && make bin/ipxe.dsk EMBED=menu.ipxe
-      - name: Build ipxe.efi
-        run: |
-          cd src && make bin-x86_64-efi/ipxe.efi EMBED=menu.ipxe
-      - name: Build ipxe.iso
-        run: |
-          cd src && make bin/ipxe.iso EMBED=menu.ipxe
-      - name: Build ipxe.lkrn
-        run: |
-          cd src && make bin/ipxe.lkrn EMBED=menu.ipxe
-      - name: Build ipxe.pxe
-        run: |
-          cd src && make bin/ipxe.pxe EMBED=menu.ipxe
-      - name: Build ipxe.usb
-        run: |
-          cd src && make bin/ipxe.usb EMBED=menu.ipxe
+          cd src && make EMBED=menu.ipxe && make bin-x86_64-efi/ipxe.efi EMBED=menu.ipxe
       - name: Merge Artifacts
         run: |
           mkdir -p  ~/artifacts
