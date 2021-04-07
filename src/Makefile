@@ -196,6 +196,23 @@ vmware : bin/8086100f.mrom bin/808610d3.mrom bin/10222000.rom bin/15ad07b0.rom
 
 ###############################################################################
 #
+# VMware build target: all ROMs used with VMware
+#
+custom : bin/ipxe.iso bin/ipxe.pxe bin/ipxe.lkrn bin/ipxe.dsk bin/ipxe.usb bin-x86_64-efi/ipxe.efi
+	@$(ECHO) '==========================================================='
+	@$(ECHO) 
+	@$(ECHO) 'Available binaries:'
+	@$(ECHO) '    bin/ipxe.dsk  -- Floppy Disk image'
+	@$(ECHO) '    bin/ipxe.efi  -- EFI binary'
+	@$(ECHO) '    bin/ipxe.iso  -- CD ROM image'
+	@$(ECHO) '    bin/ipxe.lkrn -- Kernel'
+	@$(ECHO) '    bin/ipxe.pxe  -- PXE binary'
+	@$(ECHO) '    bin/ipxe.usb  -- USB image'
+	@$(ECHO)
+	@$(ECHO) '==========================================================='
+
+###############################################################################
+#
 # Build targets that do nothing but might be tried by users
 #
 configure :
