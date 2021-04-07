@@ -1,4 +1,19 @@
 #!ipxe
 
 dhcp
+
+:menu
+menu iPXE menu
+item --gap Utilities
+item shell iPXE Shell
+item --gap Systems
+item demo iPXE demo
+choose choice || exit
+goto ${choice}
+exit
+
+:shell
 shell
+
+:demo
+chain https://boot.ipxe.org/demo
