@@ -8,12 +8,16 @@ item --gap Utilities
 item shell iPXE Shell
 item --gap Systems
 item demo iPXE demo
-choose choice || exit
+choose choice || goto exit
 goto ${choice}
-exit
+goto exit
 
 :shell
 shell
+goto exit
 
 :demo
 chain https://boot.ipxe.org/demo
+goto exit
+
+:exit
