@@ -25,6 +25,10 @@ jobs:
         run: |
           cd src
           make custom EMBED=menu.ipxe
+      - name: Test
+        run: |
+          valgrind ./src/bin-i386-linux/tests.linux
+          valgrind ./src/bin-x86_64-linux/tests.linux
       - name: Merge Artifacts
         run: |
           mkdir -p  ~/artifacts

@@ -16,7 +16,7 @@ item --gap Utilities
 item shell iPXE Shell
 item --gap Systems
 item demo iPXE demo
-item netbootxyz Netboot.XYZ
+item netbootxyz netboot.xyz
 choose choice || goto exit
 goto ${choice}
 goto exit

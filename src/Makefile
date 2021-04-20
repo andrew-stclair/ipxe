@@ -39,7 +39,7 @@ OPENSSL		:= openssl
 CSPLIT		:= csplit
 PARSEROM	:= ./util/parserom.pl
 FIXROM		:= ./util/fixrom.pl
-SYMCHECK	:= ./util/symcheck.pl
+SYMCHECK	:= ./util/symcheck.plmak
 SORTOBJDUMP	:= ./util/sortobjdump.pl
 PADIMG		:= ./util/padimg.pl
 LICENCE		:= ./util/licence.pl
@@ -200,7 +200,15 @@ vmware : bin/8086100f.mrom bin/808610d3.mrom bin/10222000.rom bin/15ad07b0.rom
 #
 custom : 
 	$(Q)$(MAKE) --no-print-directory \
-		bin/ipxe.iso bin/ipxe.pxe bin/ipxe.lkrn bin/ipxe.dsk bin/ipxe.usb bin-x86_64-efi/ipxe.efi
+		bin/blib.a EMBED=menu.ipxe \
+		bin/ipxe.iso EMBED=menu.ipxe \
+		bin/ipxe.pxe EMBED=menu.ipxe \
+		bin/ipxe.lkrn EMBED=menu.ipxe \
+		bin/ipxe.dsk EMBED=menu.ipxe \
+		bin/ipxe.usb EMBED=menu.ipxe \
+		bin-x86_64-efi/ipxe.efi EMBED=menu.ipxe \
+		bin-i386-linux/tests.linux EMBED=menu.ipxe \
+		bin-x86_64-linux/tests.linux EMBED=menu.ipxe
 	@$(ECHO) '==========================================================='
 	@$(ECHO) 
 	@$(ECHO) 'Available binaries:'
