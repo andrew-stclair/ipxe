@@ -39,7 +39,7 @@ OPENSSL		:= openssl
 CSPLIT		:= csplit
 PARSEROM	:= ./util/parserom.pl
 FIXROM		:= ./util/fixrom.pl
-SYMCHECK	:= ./util/symcheck.plmak
+SYMCHECK	:= ./util/symcheck.pl
 SORTOBJDUMP	:= ./util/sortobjdump.pl
 PADIMG		:= ./util/padimg.pl
 LICENCE		:= ./util/licence.pl
@@ -191,33 +191,6 @@ vmware : bin/8086100f.mrom bin/808610d3.mrom bin/10222000.rom bin/15ad07b0.rom
 	@$(ECHO) '    bin/15ad07b0.rom  -- vmxnet3'
 	@$(ECHO) 
 	@$(ECHO) 'For more information, see http://ipxe.org/howto/vmware'
-	@$(ECHO)
-	@$(ECHO) '==========================================================='
-
-###############################################################################
-#
-# Custom build target
-#
-custom : 
-	$(Q)$(MAKE) --no-print-directory \
-		bin/blib.a EMBED=menu.ipxe \
-		bin/ipxe.iso EMBED=menu.ipxe \
-		bin/ipxe.pxe EMBED=menu.ipxe \
-		bin/ipxe.lkrn EMBED=menu.ipxe \
-		bin/ipxe.dsk EMBED=menu.ipxe \
-		bin/ipxe.usb EMBED=menu.ipxe \
-		bin-x86_64-efi/ipxe.efi EMBED=menu.ipxe \
-		bin-i386-linux/tests.linux EMBED=menu.ipxe \
-		bin-x86_64-linux/tests.linux EMBED=menu.ipxe
-	@$(ECHO) '==========================================================='
-	@$(ECHO) 
-	@$(ECHO) 'Available binaries:'
-	@$(ECHO) '    ipxe.dsk  -- Floppy Disk image'
-	@$(ECHO) '    ipxe.efi  -- EFI binary'
-	@$(ECHO) '    ipxe.iso  -- CD ROM image'
-	@$(ECHO) '    ipxe.lkrn -- Kernel'
-	@$(ECHO) '    ipxe.pxe  -- PXE binary'
-	@$(ECHO) '    ipxe.usb  -- USB image'
 	@$(ECHO)
 	@$(ECHO) '==========================================================='
 
