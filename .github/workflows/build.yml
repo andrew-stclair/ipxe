@@ -35,13 +35,13 @@ jobs:
           name: x86 Binaries
           path: |
             ./src/bin-i386-efi/*
-            !./src/bin-i386-efi/**/*
+            !./src/bin-i386-efi/deps/
             ./src/bin-x86_64-efi/*
-            !./src/bin-x86_64-efi/**/*
+            !./src/bin-x86_64-efi/deps/
             ./src/bin-x86_64-pcbios/*
-            !./src/bin-x86_64-pcbios/**/*
+            !./src/bin-x86_64-pcbios/deps/
             ./src/bin/*
-            !./src/bin/**/*
+            !./src/bin/deps/
             !./src/**/.gitignore
             !./src/**/*.a
             !./src/**/*.defs
@@ -79,7 +79,7 @@ jobs:
           name: ARM32 Binaries
           path: |
             ./src/bin-arm32-efi/*
-            !./src/bin-arm32-efi/**/*
+            !./src/bin-arm32-efi/deps/
             !./src/**/*.a
             !./src/**/*.deps
             !./src/**/*.ids
@@ -113,7 +113,7 @@ jobs:
           name: ARM64 Binaries
           path: |
             ./src/bin-arm64-efi/*
-            !./src/bin-arm64-efi/**/*
+            !./src/bin-arm64-efi/deps/
             !./src/**/*.a
             !./src/**/*.deps
             !./src/**/*.ids
