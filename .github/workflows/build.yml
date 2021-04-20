@@ -35,33 +35,23 @@ jobs:
           name: x86 Binaries
           path: |
             ./src/bin-i386-efi/*
-            !./src/bin-i386-efi/*.a
-            !./src/bin-i386-efi/*.deps
-            !./src/bin-i386-efi/*.ids
-            !./src/bin-i386-efi/*.o
-            !./src/bin-i386-efi/*.tmp
-            !./src/bin-i386-efi/*.zinfo
+            !./src/bin-i386-efi/**/*
             ./src/bin-x86_64-efi/*
-            !./src/bin-x86_64-efi/*.a
-            !./src/bin-x86_64-efi/*.deps
-            !./src/bin-x86_64-efi/*.ids
-            !./src/bin-x86_64-efi/*.o
-            !./src/bin-x86_64-efi/*.tmp
-            !./src/bin-x86_64-efi/*.zinfo
+            !./src/bin-x86_64-efi/**/*
             ./src/bin-x86_64-pcbios/*
-            !./src/bin-x86_64-pcbios/*.a
-            !./src/bin-x86_64-pcbios/*.deps
-            !./src/bin-x86_64-pcbios/*.ids
-            !./src/bin-x86_64-pcbios/*.o
-            !./src/bin-x86_64-pcbios/*.tmp
-            !./src/bin-x86_64-pcbios/*.zinfo
+            !./src/bin-x86_64-pcbios/**/*
             ./src/bin/*
-            !./src/bin/*.a
-            !./src/bin/*.deps
-            !./src/bin/*.ids
-            !./src/bin/*.o
-            !./src/bin/*.tmp
-            !./src/bin/*.zinfo
+            !./src/bin/**/*
+            !./src/**/.gitignore
+            !./src/**/*.a
+            !./src/**/*.defs
+            !./src/**/*.deps
+            !./src/**/*.ids
+            !./src/**/*.list
+            !./src/**/*.map
+            !./src/**/*.o
+            !./src/**/*.tmp
+            !./src/**/*.zinfo
 
 
   arm32:
@@ -89,10 +79,14 @@ jobs:
           name: ARM32 Binaries
           path: |
             ./src/bin-arm32-efi/*
-            !./src/bin-arm32-efi/*.a
-            !./src/bin-arm32-efi/*.deps
-            !./src/bin-arm32-efi/*.ids
-            !./src/bin-arm32-efi/*.o
+            !./src/bin-arm32-efi/**/*
+            !./src/**/*.a
+            !./src/**/*.deps
+            !./src/**/*.ids
+            !./src/**/*.list
+            !./src/**/*.map
+            !./src/**/*.o
+            !./src/**/*.tmp
 
   arm64:
     name: ARM64
@@ -119,7 +113,11 @@ jobs:
           name: ARM64 Binaries
           path: |
             ./src/bin-arm64-efi/*
-            !./src/bin-arm64-efi/*.a
-            !./src/bin-arm64-efi/*.deps
-            !./src/bin-arm64-efi/*.ids
-            !./src/bin-arm64-efi/*.o
+            !./src/bin-arm64-efi/**/*
+            !./src/**/*.a
+            !./src/**/*.deps
+            !./src/**/*.ids
+            !./src/**/*.list
+            !./src/**/*.map
+            !./src/**/*.o
+            !./src/**/*.tmp
