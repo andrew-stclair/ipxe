@@ -1,6 +1,14 @@
 #!ipxe
 
 dhcp
+cpair --foreground 7 --background 0 0
+cpair --foreground 7 --background 0 1
+cpair --foreground 7 --background 4 2
+cpair --foreground 6 --background 0 3
+cpair --foreground 6 --background 0 4
+cpair --foreground 1 --background 0 5
+cpair --foreground 7 --background 0 6
+cpair --foreground 7 --background 4 7
 
 :menu
 menu iPXE menu
@@ -8,6 +16,7 @@ item --gap Utilities
 item shell iPXE Shell
 item --gap Systems
 item demo iPXE demo
+item netbootxyz Netboot.XYZ
 choose choice || goto exit
 goto ${choice}
 goto exit
@@ -18,6 +27,10 @@ goto exit
 
 :demo
 chain https://boot.ipxe.org/demo
+goto exit
+
+:netbootxyz
+chain --autofree https://boot.netboot.xyz/ipxe/netboot.xyz.lkrn
 goto exit
 
 :exit
